@@ -1,0 +1,868 @@
+<!DOCTYPE html><html lang="en"><head><title>Hexal</title><!-- Required meta tags --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><style>/* Navbar */
+    .hexal-navbar {
+        padding: 13px 15px 0px 15px!important;
+        background: #323232;
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    .navbar-brand-wrapper.flex-grow {
+        -webkit-flex: 0;
+        -ms-flex: 0;
+        -moz-flex: 0;
+        flex: 0;
+    }
+    .navbar-brand {
+        margin: 0!important;
+        padding: 0 15px!important;
+        position: relative;
+    }
+    .navbar-brand:after {
+        content: '';
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        bottom: -26px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        border-top: 26px solid #323232;
+        border-right: 45px solid transparent;
+        border-left: 45px solid transparent;
+    }
+    .navbar-brand img {
+        width: 60px;
+    }
+    .navbar-expand-sm .navbar-nav .nav-link {
+        font: 700 .688rem/.875rem 'Lato', sans-serif;
+        color: #fff;
+        text-transform: uppercase;
+        padding: 8px 13px;
+        -webkit-transition: all .6s ease-in-out;
+        -moz-transition: all .6s ease-in-out;
+        -o-transition : all .6s ease-in-out;
+        transition: all .6s ease-in-out;
+        position: relative;
+        letter-spacing: .6px;
+    }
+    .navbar-expand-sm .navbar-nav .nav-link:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 3px;
+        height: 1px;
+        width: 0;
+        background: #2eb398;
+        margin: 0 auto;
+        -webkit-transition: all .4s ease-in-out;
+        -moz-transition: all .4s ease-in-out;
+        -o-transition : all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+    .navbar-expand-sm .navbar-nav .nav-link:hover,
+    .navbar-expand-sm .navbar-nav .nav-link:focus {
+        color: #2eb398;
+    }
+    .navbar-expand-sm .navbar-nav .nav-link:hover:after,
+    .navbar-expand-sm .navbar-nav .nav-link:focus:after {
+        width: 75%;
+        width: calc( 100% - 26px);
+    }
+    @media screen and (min-width:576px) {
+        .flex-grow {
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            -moz-flex: 1;
+            flex: 1;
+        }
+        .navbar-brand {
+            text-align: center;
+        }
+        .left-nav {
+            -moz-justify-content: flex-end;
+            -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+        }
+        .navbar-toggler,
+        .mobile-menu {
+            display: none;
+        }
+    }
+    @media screen and (max-width: 575px) {
+        .hexal-navbar {
+            padding-top: 10px!important;
+            justify-content: center!important;
+        }
+        .navbar-brand {
+            margin: 0 auto;
+        }
+        .navbar-brand:after {
+            bottom: -18px;
+            border-top: 18px solid #323232;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+        }
+        .navbar-brand img {
+            width: 55px;
+        }
+        .navbar-toggler {
+            position: fixed!important;
+            left: 15px;
+            bottom: 30px;
+            background: #323232!important;
+            border-radius: 0!important;
+            padding: 8px 5px!important;
+            border: none!important;
+            height:34px;
+            width: 36px;
+            position: fixed;
+            z-index: 100;
+            cursor: pointer;
+        }
+        .navbar-toggler:before,
+        .navbar-toggler:after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            outline: 1px solid transparent;
+            transform-origin: left center;
+            -webkit-transition: all .25s ease-in-out;
+            -moz-transition: all .25s ease-in-out;
+            -o-transition: all .25s ease-in-out;
+            transition: all .25s ease-in-out;
+            left: 6px;
+        }
+        .navbar-toggler:before {
+            top: 10px;
+        }
+        .navbar-toggler:after {
+            top: 22px;
+        }
+        .navbar-toggler:focus {
+            outline: 1px solid transparent;
+        }
+        .navbar-toggler .bar-icon {
+            position: absolute;
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            top: 16px;
+            left: 6px;
+            right: 6px;
+            margin: 0 auto;
+            transform-origin: left center;
+            -webkit-transition: all .25s ease-in-out;
+            -moz-transition: all .25s ease-in-out;
+            -o-transition : all .25s ease-in-out;
+            transition: all .25s ease-in-out;
+        }
+        .navbar-toggler.clicked .bar-icon {
+            opacity: 0;
+            width: 0;
+        }
+        .navbar-toggler.clicked:before {
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            left: 10px;
+            top: 7px;
+        }
+        .navbar-toggler.clicked:after {
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            left: 9px;
+            top: 24px;
+        }
+        .mobile-menu {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            -webkit-transform: scale(.88);
+            transform: scale(.88);
+            background: #323232;
+            -webkit-transition: all 1s ease-out;
+            -moz-transition: all 1s ease-out;
+            -o-transition: all 1s ease-out;
+            transition: all 1s ease-out;
+            visibility: hidden;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 75px 15px;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -moz-justify-content: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            align-items: center;
+            z-index: 10;
+        }
+        .mobile-menu-inner {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        .mobile-menu.clicked {
+            visibility: visible;
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        .mobile-nav-item {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            width: 100px;
+            height: 100px;
+            -moz-justify-content: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            align-items: center;
+            margin: 1px 0 1px 1px;
+            outline: 1px solid transparent;
+            background: #454545;
+            position: relative;
+            overflow: hidden;
+        }
+        .mobile-nav-item:focus .mobile-nav-item-inner {
+            color: #fff;
+        }
+        .mobile-menu.clicked .mobile-nav-item {
+            animation: PopOut 1s linear;
+            animation-fill-mode: both;
+        }
+        @keyframes PopOut {
+            0% {
+                opacity: 0;
+                -webkit-transform: scale(.1);
+                transform: scale(.1);
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+        .mobile-menu.clicked .mobile-nav-item.first-wrapper {
+            animation-delay: .2s;
+        }
+        .mobile-menu.clicked .mobile-nav-item.second-wrapper,
+        .mobile-menu.clicked .mobile-nav-item.third-wrapper {
+            animation-delay: .5s;
+        }
+        .mobile-menu.clicked .mobile-nav-item.fourth-wrapper {
+            animation-delay: .8s;
+        }
+        .mobile-nav-item:focus {
+            outline: 1px solid transparent;
+            text-decoration: none;
+        }
+        .mobile-nav-item .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #2eb398;
+            -webkit-transition: all .3s linear;
+            -moz-transition: all .3s linear;
+            -o-transition: all .3s linear;
+            transition: all .3s linear;
+            outline: 1px solid transparent;
+        }
+        .mobile-nav-item .overlay.first {
+            bottom: 100%;
+            right: 100%;
+        }
+
+        .mobile-nav-item:focus .overlay.first {
+            bottom: 0;
+            right: 0;
+        }
+        .mobile-nav-item .overlay.second {
+            top: 100%;
+            right: 100%;
+        }
+        .mobile-nav-item:focus .overlay.second {
+            top: 0;
+            right: 0;
+        }
+        .mobile-nav-item .overlay.third {
+            bottom: 100%;
+            left: 100%;
+        }
+
+        .mobile-nav-item:focus .overlay.third {
+            bottom: 0;
+            left: 0;
+        }
+        .mobile-nav-item .overlay.fourth {
+            top: 100%;
+            left: 100%;
+        }
+
+        .mobile-nav-item:focus .overlay.fourth {
+            top: 0;
+            left: 0;
+        }
+        .mobile-nav-item-inner {
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            outline: 1px solid transparent;
+            z-index: 10;
+            color: #bebebe;
+            font-family: 'Lato', sans-serif;
+            outline: 1px solid transparent;
+            text-decoration: none;
+        }
+        .mobile-nav-item:hover .mobile-nav-item-inner,
+        .mobile-nav-item:focus .mobile-nav-item-inner {
+            text-decoration: none;
+        }
+    }
+    @media screen and (min-width: 320px) and (max-width: 580px) and (orientation:landscape) {
+        .mobile-menu {
+            padding: 75px 15px 20px 15px;
+        }
+        .mobile-nav-item {
+            width: 80px;
+            height: 80px;
+        }
+    }
+    /* Slider section that contains hexagonal images */
+    .slider-container {
+        padding: 91px 0 50px 0;
+        background: #fff;
+        overflow: hidden;
+        height: 424px;
+    }
+    .slider-container.loading {
+        height: 424px;
+        position: relative;
+        -webkit-transition: all 2s ease-in-out;
+        -moz-transition: all 2s ease-in-out;
+        -o-transition: all 2s ease-in-out;
+        transition: all 2s ease-in-out;
+    }
+    .slider-container.loading .loading-box {
+        width: 100%;
+        top: 0;
+    }
+    .slider-container .loading-box {
+        position: absolute;
+        left:0;
+        top:63px;
+        right: 0;
+        width: 0%;
+        -webkit-transition: width 1s linear;
+        -moz-transition: width 1s linear;
+        -o-transition: width 1s linear;
+        transition: width 1s linear;
+        overflow: hidden;
+        margin: 0 auto;
+        height: 424px;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -moz-justify-content: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        background: #323232;
+    }
+    .loader {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        position: relative;
+        z-index: 1;
+        border-top-color: #2eb398;
+        animation: spin 2s linear infinite;
+    }
+    .loader:before {
+        content: '';
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        bottom: 5px;
+        left: 5px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #fff;
+        animation: spin 3s linear infinite;
+    }
+    .loader:after {
+        content: '';
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        bottom: 15px;
+        left: 15px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #2eb398;
+        animation: spin 1.5s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+    .bx-wrapper {
+        margin: 0;
+        border: none;
+        box-shadow: none;
+    }
+    .slider-container .bx-wrapper {
+        opacity: 0;
+        -webkit-transition: all 1s ease-in-out;
+        -moz-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
+        transition: all 1s ease-in-out;
+    }
+    .slider-container.loaded .bx-wrapper {
+        opacity: 1;
+        margin: 0;
+        box-shadow: none;
+    }
+    /* Hexagonal structure styles */
+    .hex-wrapper {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        list-style-type: none;
+        overflow: hidden;
+        margin: 0;
+        padding: 2px 0 0 0;
+        font-family: 'Raleway', sans-serif;
+    }
+    .hex {
+        position: relative;
+        visibility: hidden;
+        outline: 1px solid transparent;
+    }
+    .hex:after {
+        content: '';
+        display: block;
+        padding-bottom: 86.602%;
+    }
+    .hex-inner {
+        position: absolute;
+        width: 96%;
+        margin: 0 2%;
+        padding-bottom: 110.851%;
+        overflow: hidden;
+        visibility: hidden;
+        outline: 1px solid transparent;
+        -webkit-transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+        transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+    }
+    .hex-inner * {
+        position: absolute;
+        visibility: visible;
+        outline: 1px solid transparent;
+    }
+    .hex-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: #fff;
+        overflow: hidden;
+        -webkit-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+        transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+    }
+    /* Hexagonal structure contents styles */
+    .hex .img {
+        left: -100%;
+        right: -100%;
+        width: auto;
+        height: 100%;
+        margin: 0 auto;
+        -webkit-transform: rotate3d(0, 0, 0, 0deg) scale(1, 1) translateZ(0);
+        transform: rotate3d(0, 0, 0, 0deg) scale(1,1) translateZ(0);
+        -webkit-transition: all .3s ease-in-out;
+        -moz-transition: all .3s ease-in-out;
+        -o-transition: all .3s ease-in-out;
+        transition: all .3s ease-in-out;
+        filter: blur(0);
+        object-fit: cover;
+        backface-visibility: hidden;
+        outline: 1px solid transparent;
+    }
+    .hex h1,
+    .hex p {
+        width: 100%;
+        padding: 5%;
+        box-sizing: border-box;
+        background-color: rgba(0, 128, 128, 0.8);
+        outline: 1px solid transparent;
+        font-weight: 300;
+        margin: 0;
+        color: #fff;
+        -webkit-transition: transform .2s ease-out, opacity .3s ease-out;
+        -moz-transition: transform .2s ease-out, opacity .3s ease-out;
+        -o-transition: transform .2s ease-out, opacity .3s ease-out;
+        transition: transform .2s ease-out, opacity .3s ease-out;
+    }
+    .hex h1 {
+        bottom: 50%;
+        padding-top: 50%;
+        font-size: 1.5rem;
+        z-index: 1;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    .hex h1:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 45%;
+        width: 10%;
+        text-align: center;
+        border-bottom: 1px solid #fff;
+    }
+    .hex h1.only-title:after {
+        border-color: transparent;
+    }
+    .hex h1.left {
+        -webkit-transform: translate3d( -100%, 0, 0);
+        transform: translate3d( -100%, 0, 0 );
+    }
+    .hex h1.right {
+        -webkit-transform: translate3d( 100%, 0, 0);
+        transform: translate3d( 100%, 0, 0 );
+    }
+    .hex p {
+        top: 50%;
+        padding-bottom: 50%;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    .hex p.left {
+        -webkit-transform: translate3d( -100%, 0, 0);
+        transform: translate3d( -100%, 0, 0 );
+    }
+    .hex p.right {
+        -webkit-transform: translate3d( 100%, 0, 0);
+        transform: translate3d( 100%, 0, 0 );
+    }
+    .hex .inner-div {
+        width: 100%;
+        height: 100%;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -moz-justify-content: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-transition: all .3s linear;
+        -moz-transition: all .3s linear;
+        -o-transition: all .3s linear;
+        transition: all .3s linear;
+        background: rgba(0, 128, 128, 0.8);
+        color: #fff;
+        outline: 1px solid transparent;
+    }
+    .hex .inner-div.left {
+        -webkit-transform: translate3d( -100%, 0, 0);
+        transform: translate3d( -100%, 0, 0 );
+    }
+    .hex .inner-div.right {
+        -webkit-transform: translate3d( 100%, 0, 0);
+        transform: translate3d( 100%, 0, 0);
+    }
+    .hex .inner-div.top {
+        -webkit-transform: translate3d( 0, -100%, 0);
+        transform: translate3d( 0, -100%, 0);
+    }
+    .hex .inner-div.bottom {
+        -webkit-transform: translate3d( 0, 100%, 0);
+        transform: translate3d( 0, 100%, 0);
+    }
+    .hex .inner-div.center-x {
+        -webkit-transform: rotate3d( 1, 0, 0, 90deg);
+        transform: rotate3d( 1, 0, 0, 90deg );
+    }
+    .hex .inner-div.center-y {
+        -webkit-transform: rotate3d( 0, 1, 0, 90deg);
+        transform: rotate3d( 0, 1, 0, 90deg);
+    }
+    .hex .inner-div.center-z {
+        -webkit-transform: rotate3d( 0, 0, 1, 90deg);
+        transform: rotate3d( 0, 0, 1, 90deg);
+        opacity: 0;
+        width: 50%;
+        height: 50%;
+    }
+    .hex-link:hover h1,
+    .hex-link:focus h1,
+    .hex-link:hover p,
+    .hex-link:focus p,
+    .hex-link:hover .inner-div,
+    .hex-link:focus .inner-div {
+        -webkit-transform: translate3d(0, 0, 0) rotate3d( 1, 1, 1, 0deg);
+        transform: translate3d(0, 0, 0) rotate3d( 1, 1, 1, 0deg );
+    }
+    .hex-link:hover .center-z,
+    .hex-link:focus .center-z {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+    }
+    .hex-link:hover .img,
+    .hex-link:focus .img {
+        -webkit-transform: scale(1.1, 1.1) translateZ(0);
+        transform: scale(1.1, 1.1) translateZ(0);
+    }
+
+    .bx-wrapper .bx-controls-direction a {
+        width: 28px;
+        height: 50px;
+        -webkit-transition: all .2s linear;
+        -moz-transition: all .2s linear;
+        -o-transition: all .2s linear;
+        transition: all .2s linear;
+        display: none;
+    }
+    .bx-controls {
+        position: relative;
+    }
+    .bx-wrapper .bx-pager {
+        position: absolute!important;
+        left: 0;
+        top: 25px;
+        text-align: left!important;
+        bottom: 0!important;
+        padding-top: 0!important;
+    }
+    .bx-wrapper .bx-pager.bx-default-pager a {
+        border-radius: 0!important;
+        height: 8px!important;
+        width: 8px!important;
+        margin: 0 3px!important;
+        background: #ddd2c5!important;
+        -webkit-transition: all .4s ease-in-out;
+        -moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+    .bx-wrapper .bx-pager.bx-default-pager a.active,
+    .bx-wrapper .bx-pager.bx-default-pager a:focus,
+    .bx-wrapper .bx-pager.bx-default-pager a:hover {
+        background: #8b8784!important;
+    }
+    /* Media queries to determine the width of each hexagonal box section */
+    @media screen and (min-width:576px) {
+        .slider-container {
+            padding: 65px 0 70px 0;
+        }
+    }
+    @media screen and (min-width:1200px) {
+        .hex-wrapper {
+            padding-bottom: 5%;
+        }
+        .hex {
+            width: 20%;
+        }
+        .odd .hex:nth-child(9n+1),
+        .even .hex:nth-child(9n+6) {
+            margin-left: 10%;
+        }
+        .slider-container {
+            padding: 70px 0 80px 0;
+        }
+        .bx-wrapper .bx-pager {
+            top: 35px;
+        }
+    }
+    @media screen and (min-width:992px) and (max-width:1199px) {
+        .hex-wrapper {
+            padding-bottom: 6.3%;
+        }
+        .hex {
+            width: 25%;
+        }
+        .odd .hex:nth-child(7n+1),
+        .even .hex:nth-child(7n+5) {
+            margin-left:12.5%;
+        }
+        .slider-container {
+            padding: 70px 0 70px 0;
+        }
+    }
+    @media screen and (min-width:768px) and (max-width:991px) {
+        .hex-wrapper {
+            padding-bottom: 8.3%;
+        }
+        .hex {
+            width: 33.333%;
+        }
+        .odd .hex:nth-child(5n+1),
+        .even .hex:nth-child(5n+4) {
+            margin-left: 16.666%;
+        }
+    }
+    @media screen and (max-width:767px) {
+        .hex-wrapper {
+            padding-bottom: 12.5%;
+        }
+        .hex {
+            width: 50%;
+        }
+        .odd .hex:nth-child(3n+1),
+        .even .hex:nth-child(3n+3) {
+            margin-left: 25%;
+        }
+    }
+    @media screen and (max-width: 575px) {
+        .slider-container {
+            padding: 45px 0 70px 0;
+        }
+        .slider-container .loading-box {
+            top: 56px;
+        }
+        .bx-wrapper .bx-pager {
+            text-align: right!important;
+        }
+        .loader {
+            margin-bottom: 30px;
+        }
+    }</style><!-- Bootstrap CSS --><!--
+    <link rel="preload" href="css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/bootstrap.min.css"></noscript>
+--><!-- Google fonts --><link href="https://fonts.googleapis.com/css?family=Lato:400,700|Raleway:300,400,700|Maven+Pro:400" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css?family=Lato:400,700|Raleway:300,400,700|Maven+Pro:400" rel="stylesheet"></noscript><!-- Font awesome Icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="preload" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"></noscript><!-- Other Plugin css files --><!--
+	<link rel="preload" href="css/jquery.bxslider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/jquery.bxslider.min.css"></noscript>
+--><!-- My custom Css File for the page --><link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/styles.css"></noscript><script>/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+    /* This file is meant as a standalone workflow for
+    - testing support for link[rel=preload]
+    - enabling async CSS loading in browsers that do not support rel=preload
+    - applying rel preload css once loaded, whether supported or not.
+    */
+    (function( w ){
+        "use strict";
+        // rel=preload support test
+        if( !w.loadCSS ){
+            w.loadCSS = function(){};
+        }
+        // define on the loadCSS obj
+        var rp = loadCSS.relpreload = {};
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function(){
+            var ret;
+            try {
+                ret = w.document.createElement( "link" ).relList.supports( "preload" );
+            } catch (e) {
+                ret = false;
+            }
+            return function(){
+                return ret;
+            };
+        })();
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function( link ){
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || "all";
+            function enableStylesheet(){
+                link.media = finalMedia;
+            }
+            // bind load handlers to enable media
+            if( link.addEventListener ){
+                link.addEventListener( "load", enableStylesheet );
+            } else if( link.attachEvent ){
+                link.attachEvent( "onload", enableStylesheet );
+            }
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function(){
+                link.rel = "stylesheet";
+                link.media = "only x";
+            });
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout( enableStylesheet, 3000 );
+        };
+
+        // loop through link elements in DOM
+        rp.poly = function(){
+            // double check this to prevent external calls from running
+            if( rp.support() ){
+                return;
+            }
+            var links = w.document.getElementsByTagName( "link" );
+            for( var i = 0; i < links.length; i++ ){
+                var link = links[ i ];
+                // qualify links to those with rel=preload and as=style attrs
+                if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+                    // prevent rerunning on link
+                    link.setAttribute( "data-loadcss", true );
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle( link );
+                }
+            }
+        };
+        // if unsupported, run the polyfill
+        if( !rp.support() ){
+            // run once at least
+            rp.poly();
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval( rp.poly, 500 );
+            if( w.addEventListener ){
+                w.addEventListener( "load", function(){
+                    rp.poly();
+                    w.clearInterval( run );
+                } );
+            } else if( w.attachEvent ){
+                w.attachEvent( "onload", function(){
+                    rp.poly();
+                    w.clearInterval( run );
+                } );
+            }
+        }
+        // commonjs
+        if( typeof exports !== "undefined" ){
+            exports.loadCSS = loadCSS;
+        }
+        else {
+            w.loadCSS = loadCSS;
+        }
+    }( typeof global !== "undefined" ? global : this ) );</script></head><body><!-- Navigation Menu --><nav class="navbar navbar-expand-sm fixed-top hexal-navbar"><a href="#" class="navbar-brand d-block d-sm-none"><img src="images/logo.png" alt="Hexal HTML"></a><div class="collapse navbar-collapse"><ul class="navbar-nav flex-grow left-nav"><li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li><li class="nav-item"><a href="#about" class="nav-link">About</a></li></ul><div class="navbar-brand-wrapper flex-grow justify-content-center d-none d-sm-block"><a href="#" class="navbar-brand"><img src="images/logo.png" alt="Hexal HTML"></a></div><ul class="navbar-nav flex-grow"><li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li><li class="nav-item"><a href="#test-modal" class="nav-link" data-toggle="modal">Test Results</a></li></ul></div></nav><!-- End of Navigation Menu --><!-- Mobile Navigation Menu --> <button class="navbar-toggler custom-menu-button" type="button" data-toggle="collapse" data-target="#hexalNavbar" aria-controls="hexalNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="bar-icon"></span></button><div class="mobile-menu"><div class="mobile-menu-inner"><div class="mobile-menu-row"><a href="#portfolio" class="mobile-nav-item first-wrapper"><div class="overlay first"></div><div class="mobile-nav-item-inner">Portfolio</div></a><a href="#about" class="mobile-nav-item second-wrapper"><div class="overlay second"></div><div class="mobile-nav-item-inner">About</div></a></div><div class="mobile-menu-row"><a href="#contact" class="mobile-nav-item third-wrapper"><div class="overlay third"></div><div class="mobile-nav-item-inner">Contact</div></a><a href="#test-modal" class="mobile-nav-item fourth-wrapper" data-toggle="modal"><div class="overlay fourth"></div><div class="mobile-nav-item-inner">Test Result</div></a></div></div></div><!-- End of Mobile Navigation Menu --><!-- Slider section --><section class="slider-container loading" id="portfolio"><div class="container"><div class="bxslider"><div class="odd"><ul class="hex-wrapper"><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-1.jpg" alt="Demo Image" class="img"><h1>Demo Headline</h1><p>This is a random paragraph</p></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-2.jpg" alt="Demo Image" class="img"><h1 class="left">Left Animation</h1><p class="right">This is a random paragraph</p></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-3.jpg" alt="Demo Image" class="img"><p>Only paragraph is shown</p></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-4.jpg" alt="Demo Image" class="img"><h1 class="right">Right Animation</h1><p class="left">This is a random paragraph</p></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-5.jpg" alt="Demo Image" class="img"><div class="inner-div left">Whole section can be animated together</div></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-6.jpg" alt="Demo Image" class="img"><div class="inner-div top">Link can be used here</div></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-7.jpg" alt="Demo Image" class="img"><div class="inner-div center-z">Center</div></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-8.jpg" alt="Demo Image" class="img"><div class="inner-div bottom">Another variation</div></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-9.jpg" alt="Demo Image" class="img"><div class="inner-div right">From right side</div></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-10.jpg" alt="Demo Image" class="img"><div class="inner-div center-y">Vertically Expand</div></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-11.jpg" alt="Demo Image" class="img"><div class="inner-div center-x">Horizontally Expand</div></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-12.jpg" alt="Demo Image" class="img"><h1 class="only-title">Only Title</h1></div></div></li><li class="hex d-lg-block d-md-none"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-13.jpg" alt="Demo Image" class="img"><div class="inner-div center-y">Vertically Expand</div></div></div></li><li class="hex d-none d-lg-block d-xl-none"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-1.jpg" alt="Demo Image" class="img"><h1>Demo Headline</h1><p>This is a random paragraph</p></div></div></li></ul></div><!-- First slide --><div class="even"><ul class="hex-wrapper"><li class="hex"><div class="hex-inner"><div class="hex-link"><picture class="img"><source media="(min-width: 768px)" srcset="images/slider-img-14-d.jpg"><img src="images/slider-img-14-m.jpg" alt="Demo Image" class="img"></picture></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><picture class="img"><source media="(min-width: 768px)" srcset="images/slider-img-15-d.jpg"><img src="images/slider-img-15-m.jpg" alt="Demo Image" class="img"></picture></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><picture class="img"><source media="(min-width: 768px)" srcset="images/slider-img-16-d.jpg"><img src="images/slider-img-16-m.jpg" alt="Demo Image" class="img"></picture></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><picture class="img"><source media="(min-width: 768px)" srcset="images/slider-img-17-d.jpg"><img src="images/slider-img-17-m.jpg" alt="Demo Image" class="img"></picture></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-18.jpg" alt="Demo Image" class="img"></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><picture class="img"><source media="(min-width: 768px)" srcset="images/slider-img-19-d.jpg"><img src="images/slider-img-19-m.jpg" alt="Demo Image" class="img"></picture></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><picture class="img"><source media="(min-width: 768px)" srcset="images/slider-img-20-d.jpg"><img src="images/slider-img-20-m.jpg" alt="Demo Image" class="img"></picture></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-21.jpg" alt="Demo Image" class="img"></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><picture class="img"><source media="(min-width: 768px)" srcset="images/slider-img-22-d.jpg"><img src="images/slider-img-22-m.jpg" alt="Demo Image" class="img"></picture></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-23.jpg" alt="Demo Image" class="img"></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-24.jpg" alt="Demo Image" class="img"></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><picture class="img"><source media="(min-width: 768px)" srcset="images/slider-img-25-d.jpg"><img src="images/slider-img-25-m.jpg" alt="Demo Image" class="img"></picture></div></div></li><li class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-26.jpg" alt="Demo Image" class="img"></div></div></li><li class="hex d-lg-block d-md-none"><div class="hex-inner"><div class="hex-link"><img src="images/slider-img-27.jpg" alt="Demo Image" class="img"></div></div></li></ul></div><!-- Second slide --></div><!-- .bxslider --></div><!-- .container --><div class="loading-box"><div class="loader"></div></div><!-- .loading-box --></section><!-- End of Slider section --><!-- About Developer Section --><section class="about-dev" id="about"><div class="container"><div class="row"><div class="col-xl-1"></div><!-- Spacing on the largest screen --><div class="col-xl-10"><div class="row dev-inner"><div class="col-md-3"><div class="hex-wrapper"><div class="hex"><div class="hex-inner"><div class="hex-link"><img src="images/atiq.jpg" alt="Atiq" class="img"></div></div></div></div></div><!-- .col-md-3, Developer Image Wrapper --><div class="col-md-9"><h1>MD. Atiqujjaman</h1><h3>Front-end Developer</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor, nibh at sagittis tristique, enim magna pretium augue, eget consectetur sem dui non urna. Integer gravida, diam congue molestie fringilla, elit odio rhoncus turpis, ac dictum libero elit vel metus. Morbi egestas sit amet velit eget venenatis. Mauris porttitor, nibh at sagittis tristique, enim magna pretium augue, eget consectetur sem dui non urna</p><div class="social-wrapper"><div class="social-box"><a class="single-box" href="https://www.facebook.com" target="_blank"><div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div><div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a><a class="single-box vertical" href="https://www.twitter.com" target="_blank"><div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div><div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a><a class="single-box" href="https://plus.google.com/discover" target="_blank"><div class="front"><i class="fa fa-google-plus" aria-hidden="true"></i></div><div class="back"><i class="fa fa-google-plus" aria-hidden="true"></i></div></a><a class="single-box vertical" href="https://www.pinterest.com" target="_blank"><div class="front"><i class="fa fa-pinterest-p" aria-hidden="true"></i></div><div class="back"><i class="fa fa-pinterest-p" aria-hidden="true"></i></div></a><a class="single-box" href="https://www.linkedin.com" target="_blank"><div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div><div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></div></div><!-- .social-wrapper --></div><!-- .col-md-9, Developer's other info --></div></div><!-- .col-xs-10 --><div class="col-xl-1"></div><!-- Spacing on the largest screen --></div></div></section><!-- End of About Developer Section --><!-- Contact section --><section class="contact-section" id="contact"><div class="container"><div class="row"><div class="col-xl-1"></div><!-- Spacing on the largest screen --><div class="col-xl-10"><h3>Get In Touch</h3><h6>In order to get in touch use the contact form below: (Not working right now)</h6><div class="row contact-inner"><div class="col-md-9"><form action="" method=""><div class="form-group"><input type="text" id="user-name" class="form-control" placeholder="" required><label for="user-name">Name (Required)</label></div><div class="form-group"><input type="email" id="user-email" class="form-control" placeholder="" required><label for="user-email">Email (Required)</label></div><div class="form-group"><input type="email" id="user-subject" class="form-control" placeholder=""><label for="user-subject">Subject</label></div><div class="form-group"><textarea class="form-control" id="user-message" rows="6"></textarea><label for="user-message">Write your message here...</label></div><div class="form-group text-right"><button type="submit" class="btn btn-primary btn-send">Send</button></div></form></div><!-- .col-md-9 --><div class="col-md-3"><p><b>Quisque Hendrerit:</b> purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus morbi vitae.</p><a href="#map-modal" class="other-info" data-toggle="modal"><i class="fa fa-map-marker" aria-hidden="true"></i> Dhaka, Bangladesh </a><a href="tel:+123456789" class="other-info"><i class="fa fa-phone" aria-hidden="true"></i> +123456789 </a><a href="mailto:demo@someemail.com" class="other-info"><i class="fa fa-envelope" aria-hidden="true"></i> demo@someemail.com</a></div><!-- .col-md-3 --></div></div><!-- .col-xl-10 --><div class="col-xl-1"></div><!-- Spacing on the largest screen --></div></div></section><!-- End of Contact section --><!-- Footer section --><footer class="footer"><div class="container"><p>&copy; Copyright 2017 by Atiq</p></div></footer><!-- End of Footer section --><!-- Map Modal --><div class="modal fade" id="map-modal" tabindex="-1" role="dialog" aria-labelledby="map-modal-box" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-body"><div class="stage" data-dismiss="modal" aria-label="Close"><div class="cube spinner"><div class="face1">X</div><div class="face2">X</div><div class="face3">X</div><div class="face4">X</div><div class="face5">X</div><div class="face6">X</div></div></div><!-- .stage --><div class="map-wrapper"><div id="map"></div></div></div></div></div></div><!-- End of Map Modal --><!-- Test result Modal --><div class="modal fade" id="test-modal" tabindex="-1" role="dialog" aria-labelledby="test-modal-box" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-body"><div class="stage" data-dismiss="modal" aria-label="Close"><div class="cube spinner"><div class="face1">X</div><div class="face2">X</div><div class="face3">X</div><div class="face4">X</div><div class="face5">X</div><div class="face6">X</div></div></div><!-- .stage --><p>Check the google insight score from <a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank">HERE</a>.</p><p>Check the google mobile-friendly test from <a href="https://search.google.com/test/mobile-friendly" target="_blank">HERE</a>.</p><p>Check the page load speed from <a href="https://gtmetrix.com/" target="_blank">HERE</a>.</p></div></div></div></div><!-- End of Test Result Modal --><!-- After loading page Modal --><div class="modal fade" id="load-modal" tabindex="-1" role="dialog" aria-labelledby="load-modal-box" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-body"><div class="stage" data-dismiss="modal" aria-label="Close"><div class="cube spinner"><div class="face1">X</div><div class="face2">X</div><div class="face3">X</div><div class="face4">X</div><div class="face5">X</div><div class="face6">X</div></div></div><!-- .stage --><p class="text-center">Few things to notice:</p><p><b>Menu:</b> Mobile menu has some animations, while desktop has simple ones. Try clicking them and see what happens.</p><p><b>Slider:</b> First slide of slider has different types of css animation on hover (focus on mobile). The slider will pause on hover(desktop) and focus(mobile), so you can take your time to check those out. As for the second slide, thats for you to appreciate the beauty of abstract art.</p><p><b>About:</b> Horizontal and vertical flipping animations on the social media icons (on hover and focus).</p><p><b>Contact:</b> Slight animation on focusing the form. And map modal on clicking the location info.</p><p>All the 'X' animating cubics are 'close' button, if you didnt notice..</p><p>Check the test results from 'Test Results' menu item, you might be surprised.</p></div></div></div></div><!-- End of After loading page Modal --><!-- jQuery first, then Popper.js, then Bootstrap JS --><script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script><!-- Other Plugin js files --><!--	<script src="js/jquery.bxslider.min.js"></script>--><!-- My custom js file --><!--	<script src="js/custom.min.js"></script>--><script src="js/main.js"></script><!-- Map code--><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLYya5Iek8i175lLSGmAenNPFfa3wDNGQ&callback=initMap" async defer="defer"></script></body></html>
